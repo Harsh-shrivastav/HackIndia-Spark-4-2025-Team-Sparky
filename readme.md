@@ -28,7 +28,8 @@ Run the Development Server
 To start the Next.js development server on port 8080:
 
 Using npm:
-
+npm run dev  ( prefered )
+or
 npm run dev -- -p 8080
 
 

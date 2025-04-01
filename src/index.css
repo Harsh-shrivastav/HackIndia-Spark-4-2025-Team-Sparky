@@ -1,0 +1,189 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222 84% 45%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 270 76% 55%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222 84% 45%;
+
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 222 84% 45%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 270 76% 55%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-ring: 224.3 76.3% 48%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222.2 47.4% 11.2%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 47.4% 13.2%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 47.4% 11.2%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 270 76% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .slide {
+    aspect-ratio: 16/9;
+    @apply bg-white shadow-xl rounded-xl overflow-hidden;
+  }
+
+  .pdf-viewer {
+    @apply min-h-[500px] max-h-[700px] overflow-y-auto rounded-xl p-6 bg-white dark:bg-slate-800 shadow-lg;
+  }
+
+  /* UI Styles */
+  .card-gradient {
+    @apply bg-gradient-to-br from-white to-secondary dark:from-card dark:to-secondary/30;
+  }
+
+  .header-gradient {
+    @apply bg-gradient-to-r from-primary to-accent text-white;
+  }
+
+  .glass-card {
+    @apply bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border border-gray-100 dark:border-slate-700 shadow-lg rounded-xl;
+  }
+
+  .document-card {
+    @apply border rounded-xl p-5 hover:border-accent cursor-pointer transition-all duration-300 bg-white dark:bg-slate-800 shadow-md hover:shadow-lg animate-fade-in;
+  }
+
+  .action-button {
+    @apply rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-[1.03];
+  }
+
+  /* AI Content Formatting */
+  .ai-content {
+    @apply max-w-none leading-relaxed;
+  }
+
+  .ai-content h1, .ai-content h2, .ai-content h3 {
+    @apply text-primary dark:text-primary font-medium mb-4;
+  }
+
+  .ai-content p {
+    @apply mb-4 text-gray-700 dark:text-gray-300;
+  }
+
+  .ai-content ul, .ai-content ol {
+    @apply my-4 ml-6 text-gray-700 dark:text-gray-300;
+  }
+
+  .ai-content li {
+    @apply mb-2;
+  }
+
+  .ai-content pre {
+    @apply bg-secondary dark:bg-secondary/30 p-4 rounded-lg my-4 overflow-x-auto;
+  }
+
+  .ai-content code {
+    @apply bg-secondary dark:bg-secondary/30 px-1 py-0.5 rounded text-sm;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-slate-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-slate-600;
+  }
+}
+
+/* Animation effects */
+.staggered-fade-in > * {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.staggered-fade-in > *:nth-child(1) { animation-delay: 0.1s; }
+.staggered-fade-in > *:nth-child(2) { animation-delay: 0.2s; }
+.staggered-fade-in > *:nth-child(3) { animation-delay: 0.3s; }
+.staggered-fade-in > *:nth-child(4) { animation-delay: 0.4s; }
+.staggered-fade-in > *:nth-child(5) { animation-delay: 0.5s; }
+.staggered-fade-in > *:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
